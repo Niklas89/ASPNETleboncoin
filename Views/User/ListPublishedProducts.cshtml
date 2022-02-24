@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Liste de mes annonces publiées";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Liste de mes annonces publiées</h1>
+
+<p>
+    <a asp-action="Create">Créer une nouvelle annonce</a>
+</p>
+
+@foreach (var item in Model) {
+    <section class=" d-flex flex-row justify-content-between m-2">
+                <div class="card d-flex flex-row justify-content-between  col-10 " >
+                    <div class="h-100 overflow-hidden w-25 border border-secondary"><img src="~/files/photos/@Html.DisplayFor(modelItem => item.ImgPath)" class="card-img-top h-100 " alt="image @Html.DisplayFor(modelItem => item.Title)">
+                        </div>
+                    <div class="card-body text-center border-secondary h-100 d-flex flex-column justify-content-center">
+                        <h5 class="card-title border border-secondary">@Html.DisplayFor(modelItem => item.Title)</h5>
+                        <p class="card-text h-50 border border-secondary">@Html.DisplayFor(modelItem => item.Description)</p>
+                         <p class="border border-secondary">@Html.DisplayFor(modelItem => item.Price) €</p>
+                         <p class="border border-secondary">@Html.DisplayFor(modelItem => item.Certificat)</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        <a asp-action="Buy" asp-route-id="@item.Id">Voir</a>
+
+                    </div>
+                     </div>                  
+            </section>    
+}

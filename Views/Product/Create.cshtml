@@ -1,0 +1,73 @@
+@model lebonanimal.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+<h4>Product</h4>
+@{
+    if (TempData.Peek("error") != null)
+    {
+        <div class="text-danger">
+            @TempData.Peek("error")
+        </div>
+        TempData["error"] = string.Empty;
+    }
+}
+@if (!string.IsNullOrEmpty(Context.Session.GetString("Firstname")))
+{
+    <h2>Bonjour, @Context.Session.GetString("Firstname")</h2>   
+}
+<hr />
+<div class="row g-3">
+    <div class="col-md-6">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Category.Id" class="form-label">Nom de la catégorie</label>
+                <select asp-for="Category.Id" asp-items="@ViewBag.Category" class="form-select">
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-group">
+                <label asp-for="ImgPath" class="form-label">
+                Ajoutez une photo à votre annonce</label>
+              <input  asp-for="ImgPath" class="form-control"  type="file" multiple>
+                <span asp-validation-for="ImgPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="20" cols="10">
+                    Entrez la description de votre animal ici
+                </textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3 form-group">
+              <label asp-for="Certificat" class="form-label">Enregistrez votre certificat si nécessaire</label>
+              <input  asp-for="Certificat" class="form-control" accept=".pdf" type="file">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

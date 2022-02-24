@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "AdminPage";
+}
+
+<section class="container-fluid">
+    <h2 class="col-12">Panneau de configuration</h2>
+    <div class=" d-flex flex-row justify-content-between m-2">
+                <div class="card d-flex flex-row justify-content-between  col-10  " >
+                    <div class="h-100 overflow-hidden w-25 border border-secondary"><img src="..." class="card-img-top h-100 " alt="...">
+                        </div>
+                    <div class="card-body text-center border-secondary h-100 d-flex flex-column justify-content-center">
+                        <h5 class="card-title border border-secondary">Card title</h5>
+                        <p class="card-text h-50 border border-secondary">desc</p>
+                         <p class="border border-secondary">Price</p>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        
+                        <label for="AccepterUser"></label>
+                         <button  name="AccepterUser" >Accepter</button>
+
+                           <label for="RefuserUser"></label>
+                         <button  name="RefuserUser" >Refuser</button>
+                        
+                    </div>
+                </div>                  
+            </div>
+</section>
+
+<section >
+    <h2 class="col-12">Liste Users</h2>
+<div class="d-flex flex-row flex-wrap justify-content-around  mt-4 border-secondary border col-12 ">
+    <h2 class="col-12 text-center">User1</h2>
+    <div class="col-12 border-secondary border d-flex flex-row flex-wrap justify-content-around">
+        <div class="col-4">Inscrit le:</div>
+        <div class="col-4">x annonce(s)</div>
+        <div class="col-4"><button>Supprimer</button></div>
+    </div> 
+</div>
+
+     <h2 class="col-12">Liste annonces supprimées</h2>
+<div class="d-flex flex-row flex-wrap justify-content-around  mt-4 border-secondary border col-12 ">
+    <div class="col-12 border-secondary border d-flex flex-row flex-wrap justify-content-around">
+        <div class="col-4">idUser</div>
+        <div class="col-4">idannonce:</div>
+        <div class="col-4">date suppression suprimé annonce</div>
+    </div> 
+</div>
+</section>
+

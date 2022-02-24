@@ -1,0 +1,45 @@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Admin modifications</h1>
+
+@if (!string.IsNullOrEmpty(Context.Session.GetString("Firstname")))
+{
+    <h2>Bonjour, @Context.Session.GetString("Firstname")</h2>
+    // Pas besoin du @ à l'intérieur d'accolades C#
+    if (Context.Session.GetInt32("IsAdmin") == 1)
+    {
+        <h2>Vous êtes admin</h2>
+    }
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Users
+            </th>
+            <th>
+                Products
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <a asp-action="UnbanUser">See banned users. You can unban them.</a>
+            </td>
+            <td>
+                <a asp-action="ApproveProduct">Approve posted products.</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <a asp-action="DeletedProduct">See deleted products.</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

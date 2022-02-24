@@ -1,0 +1,40 @@
+﻿@*
+    
+*@
+@{
+}
+<section class="container-fluid my-4" >
+    <form method="post" class="col-12 d-flex flex-column align-content-center border-secondary border">
+        <label class="mx-4">Titre de votre annonce</label>
+        <input class="mb-4 mx-4" type="text"/>
+   
+
+       <div class="dropdown  mb-4 mx-4">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+             Animaux
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>Chiens</li>
+            <li><a class="dropdown-item" href="#">Chats</a></li>
+            <li><a class="dropdown-item" href="#">Oiseaux</a></li>
+          </ul>
+        </div>
+         <label class="mx-4" for="Description">Descriptif</label>
+        <input   class="mx-4" name="Description" type="text"/>
+
+        <label  class="mx-4" for="Price">Prix</label>
+        <input  class="mx-4" name="Price" type="text"/>
+         
+        <div class="col-12 d-flex flex-row justify-content-around my-4 ">
+            <div class="col-8 d-flex flex-row flex-nowrap">
+        <button class="col-4 mx-2">Photos Annonce </button>
+        <button  class="col-4">Ajout Certificat PDF </button>
+        </div>
+        <input  class="col-3" type="submit" value="Valider"/>
+        </div>
+         </form>
+</section>
+
+<section  class="border-secondary border  text-center">
+    <p>Message</p>
+</section>

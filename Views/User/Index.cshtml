@@ -1,0 +1,62 @@
+@model IEnumerable<lebonanimal.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+<p>
+    <a asp-action="Create">Create New</a> <br />
+    <a asp-action="UserProductsOrdered">Liste de mes commandes</a> <br />
+    <a asp-action="ListPublishedProducts">Liste de mes annonces publiées</a>
+</p>
+@if (!string.IsNullOrEmpty(Context.Session.GetString("Firstname")))
+{
+    <h2>Bonjour, @Context.Session.GetString("Firstname")</h2>
+    // Pas besoin du @ à l'intérieur d'accolades C#
+    if (Context.Session.GetInt32("IsAdmin") == 1)
+    {
+        <h2>Vous êtes admin</h2>
+    }
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

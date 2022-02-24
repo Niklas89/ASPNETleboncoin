@@ -1,0 +1,32 @@
+﻿@model IEnumerable<lebonanimal.Models.UserProductsOrdered>
+
+<h1>Liste des produits commandés par l'utilisateur</h1>
+
+<table class="table" style="width:100%">
+    <thead>
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Order UserId</th>
+            <th scope="col">Order ProductId</th>
+            <th scope="col">Title </th>
+            <th scope="col">Price </th>
+            <th scope="col">Description</th>
+            <th scope="col">FirstName LastName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( var product in Model)
+        {
+            <tr>
+                <th scope="row">@product.OrderVm.Id</th>
+                <td>@product.OrderVm.UserId</td>
+                <td>@product.OrderVm.ProductId</td>
+                <td>@product.ProductVm.Title</td>
+                <td>@product.ProductVm.Price</td>
+                <td>@product.ProductVm.Description</td>
+                <td>@product.UserVm.Firstname @product.UserVm.Lastname</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
